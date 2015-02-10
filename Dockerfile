@@ -1,3 +1,4 @@
+# mminderbinder/java-jdk:oracle-java8
 FROM mminderbinder/baseimage
 MAINTAINER Milo Minderbinder <minderbinder.enterprises@gmail.com>
 
