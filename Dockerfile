@@ -12,6 +12,10 @@ RUN apt-get update && apt-get -y install \
 
 ENV JAVA_HOME /usr/lib/jvm/java-6-oracle
 
+# Extract JCE Unlimited Strength Jurisdiction Policy and add to JRE
+ADD jce_policy-6.tar.gz /opt/
+RUN rm $JAVA_HOME/jre/lib/security/*.jar && \
+	cp /opt/jce_policy-6/*.jar $JAVA_HOME/jre/lib/security/
 
 # Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
